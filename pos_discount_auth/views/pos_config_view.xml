@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+      <record id="view_pos_config_form_ext" model="ir.ui.view">
+            <field name="name">pos.config.simple.form.inherit</field>
+            <field name="model">pos.config</field>
+            <field name="inherit_id" ref="pos_discount.view_pos_config_form" />
+            <field name="arch" type="xml">
+                <field name="discount_pc" position="after">
+                        <field name="code" password="True"/>
+                </field>
+            </field>
+        </record>
+</odoo>
