@@ -22,6 +22,7 @@
         'views/payroll_view.xml',
     ],
     'images': ['static/description/com_thumbnail.jpg',
+               'static/description/banner_screenshot.png',
                'static/description/comm-1.png',
                'static/description/1-commission.gif',
                'static/description/contract-1.png',
