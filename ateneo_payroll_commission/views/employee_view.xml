@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+	<record id="view_emplo_inh" model="ir.ui.view">
+		<field name="name">Employee</field>
+		<field name="model">hr.employee</field>
+		<field name="inherit_id" ref="hr.view_employee_form"/>
+		<field name="arch" type="xml">
+			<field name="manager" position="before">
+                    <field name="is_commissioned"/>
+					<field name="comm_percent" attrs="{'invisible':[('is_commissioned','=',False)],'required':[('is_commissioned','=',True)]}"/>
+			</field>
+		</field>
+	</record>
+
+	<record id="view_contract_inh" model="ir.ui.view">
+		<field name="name">Contract</field>
+		<field name="model">hr.contract</field>
+		<field name="inherit_id" ref="hr_contract.hr_contract_view_form"/>
+		<field name="arch" type="xml">
+			<xpath expr="//field[@name='advantages']" position="after">
+                    <field name="is_commissioned" invisible="1"/>
+					<field name="comm" readonly="1" store="1" attrs="{'invisible':[('is_commissioned','=',False)]}"/>
+			</xpath>
+		</field>
+	</record>
+</odoo>
