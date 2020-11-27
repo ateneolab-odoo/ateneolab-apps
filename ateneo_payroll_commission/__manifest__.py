@@ -26,7 +26,7 @@
                'static/description/icon.png',
                'static/description/logo.png',
                'static/src/img/comm-1.jpg',
-               'static/src/img/1-commission.gif',
+               '/static/src/img/1-commission.gif',
                'static/src/img/contract-1.jpg',
                'static/src/img/custom.jpg',
                'static/src/img/ecommerce.jpg',
