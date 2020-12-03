@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <template id="kushki_acquirer_button">
+                <input type='hidden' name='kmerchant' t-att-value='acquirer.company_id.name'/>
+                <input type='hidden' name='kmerchant_id' t-att-value='acquirer.kushki_merchant_account'/>
+                <input type='hidden' name='kprivate_merchant_id' t-att-value='acquirer.kushki_private_merchant_id'/>
+                <input type='hidden' name="kenv" t-att-value="acquirer.state"/>
+                <input type='hidden' name="kregional" t-att-value="regional"/>
+                <input type='hidden' name='kamount' t-att-value="amount"/>
+                <input type="hidden" name='kreturn_url' t-att-value='returndata'/>
+                <!--Order Information -->
+                <input type='hidden' name='kinvoice_num' t-att-value='reference'/>
+                <input type='hidden' name='kreference' t-att-value='reference'/>
+                <input type='hidden' name='kcurrency' t-att-value='currency'/>
+                <input type='hidden' name='kcurrency_id' t-att-value='currency_id'/>
+                <!-- Billing Information-->
+                <input type='hidden' name='kpartner_id' t-att-value='partner_id'/>
+                <input type='hidden' name='kpartner' t-att-value='partner'/>
+                <input type='hidden' name='name' t-att-value='name'/>
+                <input type='hidden' name='address_line1' t-att-value='address_line1'/>
+                <input type='hidden' name='address_city' t-att-value='address_city'/>
+                <input type='hidden' name='address_zip' t-att-value='address_zip'/>
+                <input type='hidden' name='address_country' t-att-value='address_country'/>
+                <input type='hidden' name='phone' t-att-value='phone'/>
+                <input type='hidden' name='email' t-att-value='email'/>
+                <input id="acquirer_kushki" type='hidden' name="kacquirer" t-att-value="acquirer.id"/>
+                <!-- Submit-->
+                 <button id="pay_kushki" width="100px" t-att-class="submit_class"> 
+                    <img t-if="not submit_txt" src="/payment_kushki/static/src/img/kushki_icon.png"/> 
+                    <span t-if="submit_txt"><t t-esc="submit_txt"/> <span class="fa fa-long-arrow-right"/></span>
+                 </button>
+                <script type="text/javascript" src="/payment_kushki/static/src/js/kushki.js"></script>
+
+        </template>
+
+    </data>
+</odoo>

@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates id="template" xml:space="preserve">
+<t t-name="kushki.error">
+    <div class="modal fade">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&amp;times;</button>
+                    <h4 class="modal-title">Error</h4>
+                </div>
+                <div class="modal-body">
+                    <t t-esc="msg"></t>
+                </div>
+                <div class="modal-footer">
+                    <a href="#" class="btn btn-link btn-xs" data-dismiss="modal">Close</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</t>
+
+<t t-name="kushki.formulario">
+    <div id="div_kushki" class="modal fade">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&amp;times;</button>
+                    <h4 class="modal-title">Kushki Cajita</h4>
+                </div>
+                <div class="modal-body">
+                    <form id="kushki-pay-form" method="post" action='/payment/kushki/s2s/create'>
+                        <input type="hidden" name="acquirer_id" t-att-value="acquirer_id"/>
+                        <input type="hidden" name="merchant_id" t-att-value="merchant_id"/>
+                        <input type="hidden" name="private_merchant_id" t-att-value="private_merchant_id"/>
+                        <input type="hidden" name="amount" t-att-value="amount"/>
+                        <input type="hidden" name="currency" t-att-value="currency"/>
+                        <input type="hidden" name="environment" t-att-value="environment"/>
+                        <input type="hidden" name="regional" t-att-value="regional"/>
+                        <input type="hidden" name="partner_id" t-att-value="partner_id"/>
+                        <input type="hidden" name="reference" t-att-value="reference"/>
+                        <input t-if="return_url" type="hidden" name="return_url" t-att-value="return_url"/>
+                        <div class="clearfix"/>
+                    </form>
+                <!-- <script type="text/javascript" src="https://cdn.kushkipagos.com/kushki-checkout.js"></script> -->
+               <script type="text/javascript">
+                console.log("Creando un objeto de tipo KushkiCheckout. Debe de estar cargado kushki-checkout.js.")
+                var kushki = new KushkiCheckout({
+                    form: "kushki-pay-form",
+                    merchant_id: '<t t-esc="merchant_id"/>',
+                    amount: '<t t-esc="amount"/>',
+                    currency: '<t t-esc="currency"/>',
+                    payment_methods:["credit-card"], //["card_async"],
+                    inTestEnvironment: <t t-if="environment=='test'">true</t><t t-else="">false</t>,
+                    regional:<t t-if="regional=='true'">true</t><t t-else="">false</t>
+                });
+              </script> 
+                </div>
+                <div class="modal-footer">
+                    <a href="#" class="btn btn-link btn-xs" data-dismiss="modal">Close</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</t>
+
+</templates>
