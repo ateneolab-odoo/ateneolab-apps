@@ -1,0 +1,24 @@
+<odoo>
+    <data noupdate="1">
+        <record id="payphone_payment_acquirer" model="payment.acquirer">
+            <field name="name">PayPhone</field>
+            <field name="image_128" type="base64"
+                   file="ateneo_payment_payphone/static/src/img/payphone.png"/>
+            <field name="company_id" ref="base.main_company"/>
+        </record>
+    </data>
+
+    <data>
+        <template id="payphone_acquirer_button">
+            <input type="hidden" name="data_set" t-att-data-action-url="tx_url"
+                   data-remove-me=""/>
+            <input type="hidden" name="method" value="get" data-remove-me=""/>
+            <input type="hidden" name="paymentId" t-att-value="paymentId"/>
+        </template>
+
+        <record id="payphone_payment_acquirer" model="payment.acquirer">
+            <field name="provider">payphone</field>
+            <field name="view_template_id" ref="payphone_acquirer_button"/>
+        </record>
+    </data>
+</odoo>
