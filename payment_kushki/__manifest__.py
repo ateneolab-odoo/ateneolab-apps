@@ -15,7 +15,7 @@
     'license': 'AGPL-3',
     'author': 'AteneoLab',
     'website': 'https://ateneolab.com',
-    'price': '48.75',
+    'price': '116.66',
     'currency': 'USD',
     'images': [
         'static/description/kushki_thumbnail.jpg',
